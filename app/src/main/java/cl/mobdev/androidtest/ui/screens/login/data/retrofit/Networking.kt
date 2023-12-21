@@ -1,7 +1,10 @@
-package cl.mobdev.androidtest
+package cl.mobdev.androidtest.ui.screens.login.data.retrofit
 
 import android.util.Log
-import cl.mobdev.androidtest.Constants.url_prod
+import cl.mobdev.androidtest.ui.screens.login.data.sources.APIService
+import cl.mobdev.androidtest.ui.screens.login.data.remote.RemoteSignUpParams
+import cl.mobdev.androidtest.ui.screens.login.data.remote.RemoteSignUpResponse
+import cl.mobdev.androidtest.ui.screens.login.data.models.Constants.url_prod
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient

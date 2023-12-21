@@ -1,4 +1,4 @@
-package cl.mobdev.androidtest
+package cl.mobdev.androidtest.ui.screens.login.presentarion.models
 
 open class Event<out T>(private val content: T) {
 

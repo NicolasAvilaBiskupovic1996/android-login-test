@@ -1,4 +1,4 @@
-package cl.mobdev.androidtest
+package cl.mobdev.androidtest.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,9 +10,17 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import cl.mobdev.androidtest.ui.navigation.AppScreens
+import cl.mobdev.androidtest.ui.screens.login.presentarion.LoginViewModel
+import cl.mobdev.androidtest.ui.screens.login.ui.LoginScreen
 import cl.mobdev.androidtest.ui.theme.AndroidlogintestTheme
+import javax.inject.Inject
 
 class MainActivity : ComponentActivity() {
+
+    @Inject
+    internal lateinit var loginViewModel: LoginViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {

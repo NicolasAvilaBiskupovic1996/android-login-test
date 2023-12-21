@@ -1,4 +1,4 @@
-package cl.mobdev.androidtest
+package cl.mobdev.androidtest.ui.screens.login.presentarion.states
 
 data class LoginViewState(
     val isLoading: Boolean = false,

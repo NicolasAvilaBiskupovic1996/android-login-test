@@ -1,4 +1,4 @@
-package cl.mobdev.androidtest
+package cl.mobdev.androidtest.ui.navigation
 
 sealed class AppScreens(val route: String) {
     object SplashScreen : AppScreens(SPLASHSCREEN)

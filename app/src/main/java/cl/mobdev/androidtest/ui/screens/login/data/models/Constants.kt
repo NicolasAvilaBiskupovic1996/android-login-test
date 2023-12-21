@@ -1,4 +1,4 @@
-package cl.mobdev.androidtest
+package cl.mobdev.androidtest.ui.screens.login.data.models
 
 object Constants {
     const val NEW_USER_CODE = "El usuario se ha registrado con éxito"

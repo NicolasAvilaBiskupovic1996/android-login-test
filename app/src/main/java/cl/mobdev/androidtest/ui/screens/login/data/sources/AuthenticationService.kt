@@ -1,5 +1,9 @@
-package cl.mobdev.androidtest
+package cl.mobdev.androidtest.ui.screens.login.data.sources
 
+import cl.mobdev.androidtest.ui.screens.login.presentarion.SharedPreferencesLogin
+import cl.mobdev.androidtest.ui.screens.login.domain.SignInResult
+import cl.mobdev.androidtest.ui.screens.login.domain.LoginResult
+import cl.mobdev.androidtest.ui.screens.login.data.retrofit.FirebaseClient
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidUserException

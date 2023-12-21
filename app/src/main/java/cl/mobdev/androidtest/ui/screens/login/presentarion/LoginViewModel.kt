@@ -1,10 +1,19 @@
-package cl.mobdev.androidtest
+package cl.mobdev.androidtest.ui.screens.login.presentarion
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavController
+import cl.mobdev.androidtest.ui.screens.login.presentarion.models.Event
+import cl.mobdev.androidtest.ui.screens.login.presentarion.states.LoginViewState
+import cl.mobdev.androidtest.ui.screens.login.data.retrofit.Networking
+import cl.mobdev.androidtest.ui.screens.login.data.remote.RemoteSignUpParams
+import cl.mobdev.androidtest.ui.screens.login.presentarion.models.UserLogin
+import cl.mobdev.androidtest.ui.screens.login.data.models.Constants
+import cl.mobdev.androidtest.ui.screens.login.domain.LoginResult
+import cl.mobdev.androidtest.ui.screens.login.domain.LoginUseCase
+import cl.mobdev.androidtest.ui.navigation.AppScreens
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
