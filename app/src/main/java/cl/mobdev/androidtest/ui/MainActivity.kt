@@ -6,18 +6,16 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import cl.mobdev.androidtest.ui.navigation.AppScreens
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+import cl.mobdev.androidtest.ui.di.MyApplication
 import cl.mobdev.androidtest.ui.screens.login.presentarion.LoginViewModel
 import cl.mobdev.androidtest.ui.screens.login.ui.LoginScreen
 import cl.mobdev.androidtest.ui.theme.AndroidlogintestTheme
 import javax.inject.Inject
 
 class MainActivity : ComponentActivity() {
-
     @Inject
     internal lateinit var loginViewModel: LoginViewModel
 
@@ -30,25 +28,22 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    injectDependencies()
+                    val navController: NavHostController = rememberNavController()
+                    LoginScreen(
+                        loginViewModel = loginViewModel,
+                        onClick = { /*TODO*/ },
+                        navController = navController
+                    )
+
                 }
             }
         }
     }
-}
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    AndroidlogintestTheme {
-        Greeting("Android")
+    private fun injectDependencies() {
+        (application as MyApplication).appComponent.inject(this)
     }
 }
+
+private const val INTERVAL_SECONDS = 3600L

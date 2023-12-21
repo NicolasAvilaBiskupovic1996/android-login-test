@@ -7,16 +7,15 @@ import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 
 @Composable
 fun EmailField(
-    textValue: TextFieldValue,
-    onValueChange: (TextFieldValue) -> Unit
+    textValue: MutableState<String>,
 ) {
     Text(
         text = "email",
@@ -25,9 +24,9 @@ fun EmailField(
             .padding(start = 22.dp, top = 50.dp)
     )
     TextField(
-        value = textValue,
+        value = textValue.value,
         onValueChange = {
-            onValueChange
+            textValue.value = it
         },
         modifier = Modifier
             .height((50.dp))

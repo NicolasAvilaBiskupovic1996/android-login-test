@@ -53,18 +53,18 @@ fun LoginScreen(
             .fillMaxHeight()
             .background(Color.White)
     ) {
-        var email by remember { mutableStateOf(TextFieldValue("")) }
-        var password by remember { mutableStateOf(TextFieldValue("")) }
+        var email = remember { mutableStateOf("") }
+        var password = remember { mutableStateOf("") }
         BackButton(navController = navController)
         Title()
         EmailField(
             textValue = email
-        ) { email = it }
+        )
 
         PasswordField(
             textValue = password,
             loginViewState = loginViewState
-        ) { password = it }
+        )
 
         Row(
             modifier = Modifier
@@ -74,12 +74,12 @@ fun LoginScreen(
         ) {
             ButtonLogin(
                 text = stringResource(id = R.string.start_session),
-                email.text.length > 2 &&
-                        password.text.length > 2
+                email.value.length > 2 &&
+                        password.value.length > 2
             ) {
                 loginViewModel.onLoginSelected(
-                    email = email.text,
-                    password = password.text,
+                    email = email.value,
+                    password = password.value,
                     navController, trimmedEmail = ""
                 )
             }

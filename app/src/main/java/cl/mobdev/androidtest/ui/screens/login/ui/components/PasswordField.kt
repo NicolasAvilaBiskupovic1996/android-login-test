@@ -8,12 +8,12 @@ import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import cl.mobdev.androidtest.ui.screens.login.presentarion.states.LoginViewState
@@ -21,9 +21,8 @@ import cl.mobdev.androidtest.ui.screens.login.presentarion.states.LoginViewState
 @SuppressLint("UnrememberedMutableState")
 @Composable
 fun PasswordField(
-    textValue: TextFieldValue,
-    loginViewState: LoginViewState,
-    onValueChange: (TextFieldValue) -> Unit,
+    textValue: MutableState<String>,
+    loginViewState: LoginViewState
 ) {
     Text(
         text = "password",
@@ -38,9 +37,9 @@ fun PasswordField(
     else PasswordVisualTransformation()
 
     TextField(
-        value = textValue,
+        value = textValue.value,
         onValueChange = {
-            onValueChange
+            textValue.value = it
         },
         modifier = Modifier
             .padding(start = 22.dp)
